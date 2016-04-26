@@ -1,0 +1,115 @@
+ <?xml version = "1.0" encoding = "utf-8"?>
+2 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+3 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+4
+5 <!-- data.html -->
+6 <!-- Form to query a MySQL database. -->
+7 <html xmlns = "http://www.w3.org/1999/xhtml">
+8 <head>
+9 <title>Sample Database Query</title>
+10 <style type = "text/css">
+11 body { background-color: #F0E68C }
+12 h2 { font-family: arial, sans-serif;
+13 color: blue }
+14 input { background-color: blue;
+15 color: yellow;
+16 font-weight: bold }
+17 </style>
+18 </head>
+19 <body>
+20 <h2> Querying a MySQL database.</h2>
+21 <form method = "post" action = "database.php">
+22 <div>
+23 <p>Select a field to display:
+24 <!-- add a select box containing options -->
+25 <!-- for SELECT query --> 
+
+26 <select name = "select">
+27 <option selected = "selected">*</option>
+28 <option>ID</option>
+29 <option>Title</option>
+30 <option>Category</option>
+31 <option>ISBN</option>
+32 </select></p>
+33 <input type = "submit" value = "Send Query" />
+34 </div>
+35 </form>
+36 </body>
+37 </html> 
+
+ <?php print( '<?xml version = "1.0" encoding = "utf-8"?>' ) ?>
+2 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+3 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+4
+5 <!-- database.php -->
+6 <!-- Querying a database and displaying the results. -->
+7 <html xmlns = "http://www.w3.org/1999/xhtml">
+8 <head>
+9 <title>Search Results</title>
+10 <style type = "text/css">
+11 body { font-family: arial, sans-serif;
+12 background-color: #F0E68C }
+13 table { background-color: #ADD8E6 }
+14 td { padding-top: 2px;
+15 padding-bottom: 2px;
+16 padding-left: 4px;
+17 padding-right: 4px;
+18 border-width: 1px;
+19 border-style: inset }
+20 </style>
+21 </head>
+22 <body>
+23 <?php
+24 extract( $_POST );
+25
+26 // build SELECT query
+27 $query = "SELECT " . $select . " FROM books";
+28
+
+29 // Connect to MySQL
+30 if ( !( $database = mysql_connect( "localhost",
+31 "bansal", "bansal" ) ) )
+32 die( "Could not connect to database </body></html>" );
+33
+34 // open Products database
+35 if ( !mysql_select_db( "products", $database ) )
+36 die( "Could not open products database </body></html>" );
+37
+38 // query Products database
+39 if ( !( $result = mysql_query( $query, $database ) ) )
+40 {
+41 print( "Could not execute query! <br />" );
+42 die( mysql_error() . "</body></html>" );
+43 } // end if
+44
+45 mysql_close( $database );
+46 ?><!-- end PHP script -->
+47 <h3>Search Results</h3>
+48 <table>
+49 <?php
+50 // fetch each record in result set
+51 for ( $counter = 0; $row = mysql_fetch_row( $result );
+52 $counter++ )
+53 {
+54 // build table to display results
+55 print( "<tr>" );
+56
+
+57 foreach ( $row as $key => $value )
+58 print( "<td>$value</td>" );
+59
+60 print( "</tr>" );
+61 } // end for
+62 ?><!-- end PHP script -->
+63 </table>
+64 <br />Your search yielded <strong>
+65 <?php print( "$counter" ) ?> results.<br /><br /></strong>
+66 <h5>Please email comments to
+67 <a href = "mailto:deitel@deitel.com">
+68 Deitel and Associates, Inc.</a>
+69 </h5>
+70 </body>
+71 </html>
+
+
+
