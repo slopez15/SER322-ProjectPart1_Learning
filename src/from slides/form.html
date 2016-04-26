@@ -1,86 +1,86 @@
-1 <?xml version = "1.0" encoding = "utf-8"?>
-2 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-3 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-4
-5 <!-- form.html -->
-6 <!-- XHTML form for gathering user input. -->
-7 <html xmlns = "http://www.w3.org/1999/xhtml">
-8 <head>
-9 <title>Sample form to take user input in XHTML</title>
-10 <style type = "text/css">
-11 .prompt { color: blue;
-12 font-family: sans-serif;
-13 font-size: smaller }
-14 </style>
-15 </head>
-16 <body>
-17 <h1>Sample Registration Form</h1>
-18 <p>Please fill in all fields and click Register.</p>
-19
-20 <!-- post form data to form.php -->
-21 <form method = "post" action = "form.php">
-22 <div>
-23 <img src = "images/user.gif" alt = "User" /><br />
-24 <span class = "prompt">
-25 Please fill out the fields below.<br />
-26 </span>
-27
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-28 <!-- create four text boxes for user input -->
-29 <img src = "images/fname.gif" alt = "First Name" />
-30 <input type = "text" name = "fname" /><br />
-31
-32 <img src = "images/lname.gif" alt = "Last Name" />
-33 <input type = "text" name = "lname" /><br />
-34
-35 <img src = "images/email.gif" alt = "Email" />
-36 <input type = "text" name = "email" /><br />
-37
-38 <img src = "images/phone.gif" alt = "Phone" />
-39 <input type = "text" name = "phone" /><br />
-40
-41 <span style = "font-size: 10pt">
-42 Must be in the form (555)555-5555</span>
-43 <br /><br />
-44
-45 <img src = "images/downloads.gif"
-46 alt = "Publications" /><br />
-47
-48 <span class = "prompt">
-49 Which book would you like information about?
-50 </span><br />
-51
-52 <!-- create drop-down list containing book names -->
-53 <select name = "book"> 
+<!-- form.html -->
+<!-- XHTML form for gathering user input. -->
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+<title>Sample form to take user input in XHTML</title>
+<style type = "text/css">
+.prompt { color: blue;
+font-family: sans-serif;
+font-size: smaller }
+</style>
+</head>
+<body>
+<h1>Sample Registration Form</h1>
+<p>Please fill in all fields and click Register.</p>
 
-54 <option>Internet and WWW How to Program 4e</option>
-55 <option>C++ How to Program 6e</option>
-56 <option>Java How to Program 7e</option>
-57 <option>Visual Basic 2005 How to Program 3e</option>
-58 </select>
-59 <br /><br />
-60
-61 <img src = "images/os.gif" alt = "Operating System" />
-62 <br /><span class = "prompt">
-63 Which operating system are you currently using?
-64 <br /></span>
-65
-66 <!-- create five radio buttons -->
-67 <input type = "radio" name = "os" value = "Windows XP"
-68 checked = "checked" /> Windows XP
-69 <input type = "radio" name = "os" value =
-70 "Windows Vista" /> Windows Vista<br />
-71 <input type = "radio" name = "os" value =
-72 "Mac OS X" /> Mac OS X
-73 <input type = "radio" name = "os" value = "Linux" /> Linux
-74 <input type = "radio" name = "os" value = "Other" />
-75 Other<br />
-76
+<!-- post form data to form.php -->
+<form method = "post" action = "form.php">
+<div>
+<img src = "images/user.gif" alt = "User" /><br />
+<span class = "prompt">
+Please fill out the fields below.<br />
+</span>
 
-77 <!-- create a submit button -->
-78 <input type = "submit" value = "Register" />
-79 </div>
-80 </form>
-81 </body>
-82 </html>
+
+<!-- create four text boxes for user input -->
+<img src = "images/fname.gif" alt = "First Name" />
+<input type = "text" name = "fname" /><br />
+
+<img src = "images/lname.gif" alt = "Last Name" />
+<input type = "text" name = "lname" /><br />
+
+<img src = "images/email.gif" alt = "Email" />
+<input type = "text" name = "email" /><br />
+
+<img src = "images/phone.gif" alt = "Phone" />
+<input type = "text" name = "phone" /><br />
+
+<span style = "font-size: 10pt">
+Must be in the form (555)555-5555</span>
+<br /><br />
+
+<img src = "images/downloads.gif"
+alt = "Publications" /><br />
+
+<span class = "prompt">
+Which book would you like information about?
+</span><br />
+
+<!-- create drop-down list containing book names -->
+<select name = "book"> 
+
+<option>Internet and WWW How to Program 4e</option>
+<option>C++ How to Program 6e</option>
+<option>Java How to Program 7e</option>
+<option>Visual Basic 2005 How to Program 3e</option>
+</select>
+<br /><br />
+
+<img src = "images/os.gif" alt = "Operating System" />
+<br /><span class = "prompt">
+Which operating system are you currently using?
+<br /></span>
+
+<!-- create five radio buttons -->
+<input type = "radio" name = "os" value = "Windows XP"
+checked = "checked" /> Windows XP
+<input type = "radio" name = "os" value =
+"Windows Vista" /> Windows Vista<br />
+<input type = "radio" name = "os" value =
+"Mac OS X" /> Mac OS X
+<input type = "radio" name = "os" value = "Linux" /> Linux
+<input type = "radio" name = "os" value = "Other" />
+Other<br />
+
+
+<!-- create a submit button -->
+<input type = "submit" value = "Register" />
+</div>
+</form>
+</body>
+</html>
 
