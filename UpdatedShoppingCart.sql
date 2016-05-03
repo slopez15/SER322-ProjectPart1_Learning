@@ -16,7 +16,7 @@ CREATE TABLE Customer(
 CREATE TABLE Orders(
 	OrderID INT NOT NULL auto_increment, 
 	Date DATE, 
-	CID INT,
+	CID INT NOT NULL,
 	FOREIGN KEY(CID) REFERENCES Customer(CID),
 	PRIMARY KEY(OrderID)
 	);
@@ -45,6 +45,8 @@ CREATE table Favorites(
 	FavID INT NOT NULL,
     ISBN INT NOT NULL, -- makes more sense than isbn since it's not the copy, but the item, due to price, that they may favor
     CID INT NOT NULL,
+	foreign key(ISBN) REFERENCES MediaDescription(ISBN),
+	foreign key (CID) REFERENCES Customer(CID),
 	PRIMARY KEY(FavID)
 	);
 
@@ -62,7 +64,7 @@ INSERT INTO Orders (`OrderID`, `Date`, `CID`) VALUES
 (1, '2016-12-01', 1),
 (2, '2016-02-12', 12),
 (3, '2016-03-04', 123),
-(4, '2016-09-09', 1234),
+(4, '2016-09-08', 1234),
 (5, '2016-09-08', 1234);
 -- INSERT INTO Orders Values (6, '2016-09-08', 56);
 
@@ -73,6 +75,7 @@ INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
 (4, 0123),
 (8, 01234);
 
+
 INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Author`, `Cost`) VALUES
 (0, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99),
 (01, 'Hangar 18', 'Music','Metal','1992','Megadeth', 0.99),
@@ -81,6 +84,9 @@ INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Auth
 (01234, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99),
 (012345, 'Terminator 3','Video','Action','2000','James Cameroon', 9.99);
 
+INSERT INTO Favorites Values 
+(1,01,1);
+ 
 
 
 
