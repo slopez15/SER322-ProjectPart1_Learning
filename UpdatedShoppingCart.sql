@@ -41,20 +41,13 @@ CREATE TABLE MediaDescription(
 	Cost DECIMAL(6,2),
 	PRIMARY KEY(ISBN)
 	);
-INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Author`, `Cost`) VALUES
-(1, 0),
-
 
 CREATE table Favorites(
 	FavID INT NOT NULL,
-    UFC INT NOT NULL, -- makes more sense than isbn since it's not the copy, but the item, due to price, that they may favor
+    ISBN INT NOT NULL, -- makes more sense than isbn since it's not the copy, but the item, due to price, that they may favor
     CID INT NOT NULL,
 	PRIMARY KEY(FavID)
 	);
-
-
-
-
 
 
 
@@ -80,13 +73,16 @@ INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
 (8, 01234),
 (4, 1);
 
-
-
-INSERT INTO MediaDescription Values (0, 1, 'Terminator 2',9.99,'Video','Action','1992','James Cameroon');
-INSERT INTO MediaDescription Values (01, 2, 'Hangar 18',0.99,'Music','Metal','1992','Megadeth');
-INSERT INTO MediaDescription Values (012, 3, 'Intro to Database Management',19.99,'eBook','Computer Science','2004','Michael Douglas');
-INSERT INTO MediaDescription Values (0123, 4, 'Advanced Data Strcutures',29.99,'eBook','Computer Science','1999','Sarah Dean');
-INSERT INTO MediaDescription Values (01234, 5, 'Terminator 2',9.99,'Video','Action','1992','James Cameroon');
-
+INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Author`, `Cost`) VALUES
+(0, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99,),
+(01, 'Hangar 18', 'Music','Metal','1992','Megadeth', 0.99,),
+(012, 'Intro to Database Management','eBook','Computer Science','2004','Michael Douglas', 19.99),
+(0123, 'Advanced Data Strcutures','eBook','Computer Science','1999','Sarah Dean', 29.99),
+(01234, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99)
+(012345, 'Terminator 3','Video','Action','2000','James Cameroon', 9.99);
 
 INSERT INTO Favorites Values (1,'Hangar 18',123);
+
+
+
+
