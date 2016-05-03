@@ -25,8 +25,8 @@ CREATE TABLE Orders(
 -- each product is unique, but may be a copy of isbn with info and a price tag for that media;
 CREATE TABLE Digitallibrary(
 	UFC INT NOT NULL, 
-	ISBN INT NOT NULL,
-	FOREIGN KEY(ISBN) REFERENCES MediaDescription(ISBN), 
+	ISBN INT NOT NULL REFERENCES MediaDescription(ISBN),
+	-- FOREIGN KEY(ISBN) REFERENCES MediaDescription(ISBN), 
 	PRIMARY KEY(UFC)
 	);
 
@@ -59,11 +59,11 @@ INSERT INTO `customer` (`CID`, `Email`, `PhoneNumber`, `FirstName`, `Middlename`
 (1234, 'Eric@hotmail.com', '480-098-9101', 'Cheesey', 'D', 'Rogers', '400 w westland');
 
 INSERT INTO Orders (`OrderID`, `Date`, `CID`) VALUES
-('2016-12-01', 1),
-('2016-02-12', 12),
-('2016-03-04', 123),
-('2016-09-08', 1234),
-('2016-09-08', 5);
+(1, '2016-12-01', 1),
+(2, '2016-02-12', 12),
+(3, '2016-03-04', 123),
+(4, '2016-09-08', 1234),
+(5, '2016-09-08', 5);
 
 INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
 (1, 0),
@@ -82,6 +82,7 @@ INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Auth
 (012345, 'Terminator 3','Video','Action','2000','James Cameroon', 9.99);
 
 INSERT INTO Favorites Values (1,'Hangar 18',123);
+
 
 
 customer
