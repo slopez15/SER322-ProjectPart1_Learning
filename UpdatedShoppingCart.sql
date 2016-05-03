@@ -73,6 +73,7 @@ INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
 (2, 01),
 (3, 012),
 (4, 0123),
+(5, 0123),
 (8, 01234);
 
 
