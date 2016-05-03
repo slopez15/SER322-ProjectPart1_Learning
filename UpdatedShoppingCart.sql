@@ -52,17 +52,17 @@ CREATE table Favorites(
 
 
 # Create data
-INSERT INTO `customer` (`CID`, `Email`, `PhoneNumber`, `FirstName`, `Middlename`, `LastName`, 'Address') VALUES
+INSERT INTO `customer` (`CID`, `Email`, `PhoneNumber`, `FirstName`, `Middlename`, `LastName`, `Address`) VALUES
 (1, 'billyjoe123@mail.com', '123456789', 'Billy', 'M', 'Joe', '100 n northland'),
 (12, 'bob@msn.com', '480-798-9009', 'Bob', 'Jim', 'Smith', '200 s southland'),
-(123, 'ChelseaY@gmail.com', '480-098-9100', 'Chelsea', '', 'Rogers', '300 e eastland')
+(123, 'ChelseaY@gmail.com', '480-098-9100', 'Chelsea', '', 'Rogers', '300 e eastland'),
 (1234, 'Eric@hotmail.com', '480-098-9101', 'Cheesey', 'D', 'Rogers', '400 w westland');
 
 INSERT INTO Orders (`OrderID`, `Date`, `CID`) VALUES
 ('2016-12-01', 1),
 ('2016-02-12', 12),
 ('2016-03-04', 123),
-('2016-09-08', 1234)
+('2016-09-08', 1234),
 ('2016-09-08', 5);
 
 INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
@@ -74,15 +74,25 @@ INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
 (4, 1);
 
 INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Author`, `Cost`) VALUES
-(0, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99,),
-(01, 'Hangar 18', 'Music','Metal','1992','Megadeth', 0.99,),
+(0, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99),
+(01, 'Hangar 18', 'Music','Metal','1992','Megadeth', 0.99),
 (012, 'Intro to Database Management','eBook','Computer Science','2004','Michael Douglas', 19.99),
 (0123, 'Advanced Data Strcutures','eBook','Computer Science','1999','Sarah Dean', 29.99),
-(01234, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99)
+(01234, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99),
 (012345, 'Terminator 3','Video','Action','2000','James Cameroon', 9.99);
 
 INSERT INTO Favorites Values (1,'Hangar 18',123);
 
+
+customer
+1
+12
+ufc
+1 
+2
+isbn
+0
+01
 
 
 
