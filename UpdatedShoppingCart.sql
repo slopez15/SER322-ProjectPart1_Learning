@@ -25,10 +25,11 @@ CREATE TABLE Orders(
 -- each product is unique, but may be a copy of isbn with info and a price tag for that media;
 CREATE TABLE Digitallibrary(
 	UFC INT NOT NULL, 
-	ISBN INT NOT NULL REFERENCES MediaDescription(ISBN),
-	-- FOREIGN KEY(ISBN) REFERENCES MediaDescription(ISBN), 
+	ISBN INT NOT NULL,
+	FOREIGN KEY(ISBN) REFERENCES MediaDescription(ISBN), 
 	PRIMARY KEY(UFC)
 	);
+
 -- each title is unique and may have same info, but each title has it's own values and cost
 CREATE TABLE MediaDescription(
 	ISBN INT NOT NULL, -- needed to be in seperate table so items don't 'plagerize' and say thy are diff copy
@@ -40,6 +41,8 @@ CREATE TABLE MediaDescription(
 	Cost DECIMAL(6,2),
 	PRIMARY KEY(ISBN)
 	);
+INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Author`, `Cost`) VALUES
+(1, 0),
 
 
 CREATE table Favorites(
@@ -51,3 +54,39 @@ CREATE table Favorites(
 
 
 
+
+
+
+
+# Create data
+INSERT INTO `customer` (`CID`, `Email`, `PhoneNumber`, `FirstName`, `Middlename`, `LastName`, 'Address') VALUES
+(1, 'billyjoe123@mail.com', '123456789', 'Billy', 'M', 'Joe', '100 n northland'),
+(12, 'bob@msn.com', '480-798-9009', 'Bob', 'Jim', 'Smith', '200 s southland'),
+(123, 'ChelseaY@gmail.com', '480-098-9100', 'Chelsea', '', 'Rogers', '300 e eastland')
+(1234, 'Eric@hotmail.com', '480-098-9101', 'Cheesey', 'D', 'Rogers', '400 w westland');
+
+INSERT INTO Orders (`OrderID`, `Date`, `CID`) VALUES
+('2016-12-01', 1),
+('2016-02-12', 12),
+('2016-03-04', 123),
+('2016-09-08', 1234)
+('2016-09-08', 5);
+
+INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
+(1, 0),
+(2, 01),
+(3, 012),
+(4, 0123),
+(8, 01234),
+(4, 1);
+
+
+
+INSERT INTO MediaDescription Values (0, 1, 'Terminator 2',9.99,'Video','Action','1992','James Cameroon');
+INSERT INTO MediaDescription Values (01, 2, 'Hangar 18',0.99,'Music','Metal','1992','Megadeth');
+INSERT INTO MediaDescription Values (012, 3, 'Intro to Database Management',19.99,'eBook','Computer Science','2004','Michael Douglas');
+INSERT INTO MediaDescription Values (0123, 4, 'Advanced Data Strcutures',29.99,'eBook','Computer Science','1999','Sarah Dean');
+INSERT INTO MediaDescription Values (01234, 5, 'Terminator 2',9.99,'Video','Action','1992','James Cameroon');
+
+
+INSERT INTO Favorites Values (1,'Hangar 18',123);
