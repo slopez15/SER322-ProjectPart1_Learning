@@ -16,7 +16,7 @@ CREATE TABLE Customer(
 CREATE TABLE Orders(
 	OrderID INT NOT NULL auto_increment, 
 	Date DATE, 
-	CID INT NOT NULL,
+	CID INT,
 	FOREIGN KEY(CID) REFERENCES Customer(CID),
 	PRIMARY KEY(OrderID)
 	);
@@ -62,7 +62,7 @@ INSERT INTO Orders (`OrderID`, `Date`, `CID`) VALUES
 (1, '2016-12-01', 1),
 (2, '2016-02-12', 12),
 (3, '2016-03-04', 123),
-(4, '2016-09-08', 1234),
+(4, '2016-09-09', 1234),
 (5, '2016-09-08', 1234);
 -- INSERT INTO Orders Values (6, '2016-09-08', 56);
 
@@ -71,8 +71,7 @@ INSERT INTO DigitalLibrary (`UFC`, `ISBN`) VALUES
 (2, 01),
 (3, 012),
 (4, 0123),
-(8, 01234),
-(4, 1);
+(8, 01234);
 
 INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Author`, `Cost`) VALUES
 (0, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99),
@@ -81,8 +80,6 @@ INSERT INTO MediaDescription (`ISBN`, `Title`, `Type`, `Category`, `Year`, `Auth
 (0123, 'Advanced Data Strcutures','eBook','Computer Science','1999','Sarah Dean', 29.99),
 (01234, 'Terminator 2','Video','Action','1992','James Cameroon', 9.99),
 (012345, 'Terminator 3','Video','Action','2000','James Cameroon', 9.99);
-
-INSERT INTO Favorites Values (1,'Hangar 18',123);
 
 
 
